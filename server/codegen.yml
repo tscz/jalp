@@ -1,4 +1,5 @@
 schema: ./src/domain/books.graphql
+documents: './src/domain/**/*.graphql'
 generates:
   ./src/domain/generated/books.ts:
     plugins:
@@ -9,6 +10,6 @@ generates:
       #- typescript-mongodb
   ../client/src/api/generated/books.ts:
      plugins:
-      - typescript-apollo-client-helpers
+      - typescript
+      - typescript-operations
       - typescript-react-apollo
-      - typescript-react-query

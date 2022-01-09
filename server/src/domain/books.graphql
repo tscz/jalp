@@ -15,3 +15,10 @@ type Book {
 type Query {
   books: [Book]
 }
+
+query GetBooks {
+  books {
+    author
+    title
+  }
+}

@@ -1,50 +1,26 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  useQuery,
-  gql,
-} from "@apollo/client";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import { useGetBooksQuery } from "./api/generated/books";
 
 const client = new ApolloClient({
   uri: "http://localhost:4000/",
   cache: new InMemoryCache(),
 });
 
-interface Book {
-  author: string;
-  title: string;
-}
-
-interface BookData {
-  books: Book[];
-}
-
-const GET_BOOKS = gql`
-  query GetBooks {
-    books {
-      author
-      title
-    }
-  }
-`;
-
 function Books() {
-  const { loading, error, data } = useQuery<BookData>(GET_BOOKS);
+  const { loading, error, data } = useGetBooksQuery();
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
 
   return (
     <>
-      {data!.books.map(({ author, title }) => (
-        <div key={title}>
+      {data!.books!.map((book) => (
+        <div key={book?.title}>
           <p>
-            {author}: {title}
+            {book?.author}: {book?.title}
           </p>
         </div>
       ))}

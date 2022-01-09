@@ -13,16 +13,25 @@ export type Scalars = {
   Float: number;
 };
 
+/** A book */
 export type Book = {
   __typename?: 'Book';
+  /** The author of a book */
   author?: Maybe<Scalars['String']>;
+  /** A title of a book */
   title?: Maybe<Scalars['String']>;
 };
 
+/** Get all books */
 export type Query = {
   __typename?: 'Query';
   books?: Maybe<Array<Maybe<Book>>>;
 };
+
+export type GetBooksQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetBooksQuery = { __typename?: 'Query', books?: Array<{ __typename?: 'Book', author?: string | null | undefined, title?: string | null | undefined } | null | undefined> | null | undefined };
 
 
 

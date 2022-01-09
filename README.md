@@ -3,14 +3,17 @@ Just another learning platform
 
 Basic idea is a typescript based server-/client-application based on hexagonal architecture.
 
-Techstack Backend
+Techstack Server
 - Node.js
 - Graphql
 - MongoDB
 
-Techstack Frontend
+Techstack Client
 - React
 - Graphql
 
-## Dependency Diagram
+## Dependency Diagram Server
 <img src="./server/doc/generated/dependencygraph.svg" style="width:100%">
+
+## Dependency Diagram Client
+<img src="./client/doc/generated/dependencygraph.svg" style="width:100%">
