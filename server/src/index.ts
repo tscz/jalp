@@ -1,4 +1,4 @@
-import { GraphQLController } from "./adapter/in/GraphQLController";
+import { GraphQLController } from "./adapter/in/web/GraphQLController";
 import { MockPersistanceAdapter } from "./adapter/out/persistence/MockPersistenceAdapter";
 import { GetBooksService } from "./application/service/GetBooksService";
 
