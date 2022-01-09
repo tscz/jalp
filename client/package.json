@@ -23,6 +23,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:arch": "depcruise --config .dependency-cruiser.js src",
     "eject": "react-scripts eject",
     "deps": "dependency-cruise -T dot -v -- src/index.tsx | dot -T svg > ./doc/generated/dependencygraph.svg"
   },
