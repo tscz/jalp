@@ -1,0 +1,14 @@
+schema: ./src/domain/books.graphql
+generates:
+  ./src/domain/generated/books.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-resolvers
+      #- typescript-graphql-files-modules
+      #- typescript-mongodb
+  ../client/src/api/generated/books.ts:
+     plugins:
+      - typescript-apollo-client-helpers
+      - typescript-react-apollo
+      - typescript-react-query
