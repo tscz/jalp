@@ -16,8 +16,8 @@ export type Scalars = {
 };
 
 /** A cheat sheet */
-export type CheatSheet = {
-  __typename?: 'CheatSheet';
+export type Cheatsheet = {
+  __typename?: 'Cheatsheet';
   /** A title of a cheat sheet */
   title?: Maybe<Scalars['String']>;
 };
@@ -32,7 +32,7 @@ export type Flashcard = {
 export type Query = {
   __typename?: 'Query';
   /** Get all cheat sheets */
-  cheatSheets?: Maybe<Array<Maybe<CheatSheet>>>;
+  cheatsheets?: Maybe<Array<Maybe<Cheatsheet>>>;
   /** Get all flashcards */
   flashcards?: Maybe<Array<Maybe<Flashcard>>>;
 };
@@ -42,10 +42,10 @@ export type GetFlashcardsQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type GetFlashcardsQuery = { __typename?: 'Query', flashcards?: Array<{ __typename?: 'Flashcard', title?: string | null | undefined } | null | undefined> | null | undefined };
 
-export type GetCheatSheetsQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetCheatsheetsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetCheatSheetsQuery = { __typename?: 'Query', cheatSheets?: Array<{ __typename?: 'CheatSheet', title?: string | null | undefined } | null | undefined> | null | undefined };
+export type GetCheatsheetsQuery = { __typename?: 'Query', cheatsheets?: Array<{ __typename?: 'Cheatsheet', title?: string | null | undefined } | null | undefined> | null | undefined };
 
 
 export const GetFlashcardsDocument = gql`
@@ -82,37 +82,37 @@ export function useGetFlashcardsLazyQuery(baseOptions?: Apollo.LazyQueryHookOpti
 export type GetFlashcardsQueryHookResult = ReturnType<typeof useGetFlashcardsQuery>;
 export type GetFlashcardsLazyQueryHookResult = ReturnType<typeof useGetFlashcardsLazyQuery>;
 export type GetFlashcardsQueryResult = Apollo.QueryResult<GetFlashcardsQuery, GetFlashcardsQueryVariables>;
-export const GetCheatSheetsDocument = gql`
-    query GetCheatSheets {
-  cheatSheets {
+export const GetCheatsheetsDocument = gql`
+    query GetCheatsheets {
+  cheatsheets {
     title
   }
 }
     `;
 
 /**
- * __useGetCheatSheetsQuery__
+ * __useGetCheatsheetsQuery__
  *
- * To run a query within a React component, call `useGetCheatSheetsQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetCheatSheetsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useGetCheatsheetsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetCheatsheetsQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useGetCheatSheetsQuery({
+ * const { data, loading, error } = useGetCheatsheetsQuery({
  *   variables: {
  *   },
  * });
  */
-export function useGetCheatSheetsQuery(baseOptions?: Apollo.QueryHookOptions<GetCheatSheetsQuery, GetCheatSheetsQueryVariables>) {
+export function useGetCheatsheetsQuery(baseOptions?: Apollo.QueryHookOptions<GetCheatsheetsQuery, GetCheatsheetsQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetCheatSheetsQuery, GetCheatSheetsQueryVariables>(GetCheatSheetsDocument, options);
+        return Apollo.useQuery<GetCheatsheetsQuery, GetCheatsheetsQueryVariables>(GetCheatsheetsDocument, options);
       }
-export function useGetCheatSheetsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetCheatSheetsQuery, GetCheatSheetsQueryVariables>) {
+export function useGetCheatsheetsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetCheatsheetsQuery, GetCheatsheetsQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetCheatSheetsQuery, GetCheatSheetsQueryVariables>(GetCheatSheetsDocument, options);
+          return Apollo.useLazyQuery<GetCheatsheetsQuery, GetCheatsheetsQueryVariables>(GetCheatsheetsDocument, options);
         }
-export type GetCheatSheetsQueryHookResult = ReturnType<typeof useGetCheatSheetsQuery>;
-export type GetCheatSheetsLazyQueryHookResult = ReturnType<typeof useGetCheatSheetsLazyQuery>;
-export type GetCheatSheetsQueryResult = Apollo.QueryResult<GetCheatSheetsQuery, GetCheatSheetsQueryVariables>;
+export type GetCheatsheetsQueryHookResult = ReturnType<typeof useGetCheatsheetsQuery>;
+export type GetCheatsheetsLazyQueryHookResult = ReturnType<typeof useGetCheatsheetsLazyQuery>;
+export type GetCheatsheetsQueryResult = Apollo.QueryResult<GetCheatsheetsQuery, GetCheatsheetsQueryVariables>;

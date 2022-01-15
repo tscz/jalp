@@ -3,34 +3,17 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-import { useGetFlashcardsQuery } from "./api/generated/core";
+import App from "./App";
 
 const client = new ApolloClient({
   uri: "http://localhost:4000/",
   cache: new InMemoryCache(),
 });
 
-function Flashcards() {
-  const { loading, error, data } = useGetFlashcardsQuery();
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :(</p>;
-
-  return (
-    <>
-      {data!.flashcards!.map((flashcard) => (
-        <div key={flashcard?.title}>
-          <p>{flashcard?.title}</p>
-        </div>
-      ))}
-    </>
-  );
-}
-
 ReactDOM.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-      <h1>Flashcards</h1>
-      <Flashcards />
+      <App />
     </ApolloProvider>
   </React.StrictMode>,
   document.getElementById("root")

@@ -14,8 +14,8 @@ export type Scalars = {
 };
 
 /** A cheat sheet */
-export type CheatSheet = {
-  __typename?: 'CheatSheet';
+export type Cheatsheet = {
+  __typename?: 'Cheatsheet';
   /** A title of a cheat sheet */
   title?: Maybe<Scalars['String']>;
 };
@@ -30,7 +30,7 @@ export type Flashcard = {
 export type Query = {
   __typename?: 'Query';
   /** Get all cheat sheets */
-  cheatSheets?: Maybe<Array<Maybe<CheatSheet>>>;
+  cheatsheets?: Maybe<Array<Maybe<Cheatsheet>>>;
   /** Get all flashcards */
   flashcards?: Maybe<Array<Maybe<Flashcard>>>;
 };
@@ -40,10 +40,10 @@ export type GetFlashcardsQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type GetFlashcardsQuery = { __typename?: 'Query', flashcards?: Array<{ __typename?: 'Flashcard', title?: string | null | undefined } | null | undefined> | null | undefined };
 
-export type GetCheatSheetsQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetCheatsheetsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetCheatSheetsQuery = { __typename?: 'Query', cheatSheets?: Array<{ __typename?: 'CheatSheet', title?: string | null | undefined } | null | undefined> | null | undefined };
+export type GetCheatsheetsQuery = { __typename?: 'Query', cheatsheets?: Array<{ __typename?: 'Cheatsheet', title?: string | null | undefined } | null | undefined> | null | undefined };
 
 
 
@@ -115,7 +115,7 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = {
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
-  CheatSheet: ResolverTypeWrapper<CheatSheet>;
+  Cheatsheet: ResolverTypeWrapper<Cheatsheet>;
   Flashcard: ResolverTypeWrapper<Flashcard>;
   Query: ResolverTypeWrapper<{}>;
   String: ResolverTypeWrapper<Scalars['String']>;
@@ -124,13 +124,13 @@ export type ResolversTypes = {
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = {
   Boolean: Scalars['Boolean'];
-  CheatSheet: CheatSheet;
+  Cheatsheet: Cheatsheet;
   Flashcard: Flashcard;
   Query: {};
   String: Scalars['String'];
 };
 
-export type CheatSheetResolvers<ContextType = any, ParentType extends ResolversParentTypes['CheatSheet'] = ResolversParentTypes['CheatSheet']> = {
+export type CheatsheetResolvers<ContextType = any, ParentType extends ResolversParentTypes['Cheatsheet'] = ResolversParentTypes['Cheatsheet']> = {
   title?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
@@ -141,12 +141,12 @@ export type FlashcardResolvers<ContextType = any, ParentType extends ResolversPa
 };
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
-  cheatSheets?: Resolver<Maybe<Array<Maybe<ResolversTypes['CheatSheet']>>>, ParentType, ContextType>;
+  cheatsheets?: Resolver<Maybe<Array<Maybe<ResolversTypes['Cheatsheet']>>>, ParentType, ContextType>;
   flashcards?: Resolver<Maybe<Array<Maybe<ResolversTypes['Flashcard']>>>, ParentType, ContextType>;
 };
 
 export type Resolvers<ContextType = any> = {
-  CheatSheet?: CheatSheetResolvers<ContextType>;
+  Cheatsheet?: CheatsheetResolvers<ContextType>;
   Flashcard?: FlashcardResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
 };

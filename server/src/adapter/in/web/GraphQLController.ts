@@ -4,12 +4,19 @@ import { GraphQLFileLoader } from "@graphql-tools/graphql-file-loader";
 import { addResolversToSchema } from "@graphql-tools/schema";
 import { Resolvers } from "../../../domain/generated/core";
 import { GetFlashcardsQuery } from "../../../application/port/in/GetFlashcardsQuery";
+import { GetCheatsheetsQuery } from "../../../application/port/in/GetCheatsheetQuery";
+
+export type Config = {
+  getFlashcardsQuery: GetFlashcardsQuery;
+  getCheatsheetsQuery: GetCheatsheetsQuery;
+};
 
 export class GraphQLController {
-  public static start(getFlashcardsQuery: GetFlashcardsQuery) {
+  public static start(config: Config) {
     const resolvers: Resolvers = {
       Query: {
-        flashcards: () => getFlashcardsQuery.getFlashcards(),
+        flashcards: () => config.getFlashcardsQuery.getFlashcards(),
+        cheatsheets: () => config.getCheatsheetsQuery.getCheatsheets(),
       },
     };
 

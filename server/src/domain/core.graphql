@@ -7,7 +7,7 @@ type Flashcard {
 }
 
 "A cheat sheet"
-type CheatSheet {
+type Cheatsheet {
   "A title of a cheat sheet"
   title: String
 }
@@ -16,7 +16,7 @@ type Query {
   "Get all flashcards"
   flashcards: [Flashcard]
   "Get all cheat sheets"
-  cheatSheets: [CheatSheet]
+  cheatsheets: [Cheatsheet]
 }
 
 query GetFlashcards {
@@ -25,8 +25,8 @@ query GetFlashcards {
   }
 }
 
-query GetCheatSheets {
-  cheatSheets {
+query GetCheatsheets {
+  cheatsheets {
     title
   }
 }
