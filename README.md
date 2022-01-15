@@ -1,5 +1,11 @@
 # JALP - Just Another Learning Platform
-This is just another learning platform (JALP) to enable a user to learn and practice new things of interest. 
+<p align="center">
+    <img src="./jalp.svg" alt="logo" width="20%">
+</p>
+
+<p align="center">
+This is just another learning platform helping you to learn and practice new things. 
+</p>
 
 ## Getting started
 First start the server locally (default as localhost:4000) via
@@ -64,3 +70,6 @@ The client is a react application.
 
 ### Build
 TODO
+
+## License
+Icons by [svgrepo.com](https://www.svgrepo.com/svg/357225/student)
