@@ -1,0 +1,32 @@
+# Core domain schema of jalp
+
+"A flashcard"
+type Flashcard {
+  "A title of a flashcard"
+  title: String
+}
+
+"A cheat sheet"
+type CheatSheet {
+  "A title of a cheat sheet"
+  title: String
+}
+
+type Query {
+  "Get all flashcards"
+  flashcards: [Flashcard]
+  "Get all cheat sheets"
+  cheatSheets: [CheatSheet]
+}
+
+query GetFlashcards {
+  flashcards {
+    title
+  }
+}
+
+query GetCheatSheets {
+  cheatSheets {
+    title
+  }
+}

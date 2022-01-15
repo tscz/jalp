@@ -1,19 +1,17 @@
-import { LoadBookPort } from "../../../application/port/out/loadBookPort";
-import { Book } from "../../../domain/generated/books";
+import { LoadFlashcardPort } from "../../../application/port/out/loadFlashcardPort";
+import { Flashcard } from "../../../domain/generated/core";
 
-export class MockPersistanceAdapter implements LoadBookPort {
-  getBooks() {
+export class MockPersistanceAdapter implements LoadFlashcardPort {
+  getFlashcards() {
     return books;
   }
 }
 
-const books: Book[] = [
+const books: Flashcard[] = [
   {
-    title: "The Awakening",
-    author: "Kate Chopin",
+    title: "The first flashcard",
   },
   {
-    title: "City of Glass",
-    author: "Paul Auster",
+    title: "The second flashcard",
   },
 ];

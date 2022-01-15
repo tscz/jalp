@@ -3,25 +3,23 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-import { useGetBooksQuery } from "./api/generated/books";
+import { useGetFlashcardsQuery } from "./api/generated/core";
 
 const client = new ApolloClient({
   uri: "http://localhost:4000/",
   cache: new InMemoryCache(),
 });
 
-function Books() {
-  const { loading, error, data } = useGetBooksQuery();
+function Flashcards() {
+  const { loading, error, data } = useGetFlashcardsQuery();
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
 
   return (
     <>
-      {data!.books!.map((book) => (
-        <div key={book?.title}>
-          <p>
-            {book?.author}: {book?.title}
-          </p>
+      {data!.flashcards!.map((flashcard) => (
+        <div key={flashcard?.title}>
+          <p>{flashcard?.title}</p>
         </div>
       ))}
     </>
@@ -31,7 +29,8 @@ function Books() {
 ReactDOM.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-      <Books />
+      <h1>Flashcards</h1>
+      <Flashcards />
     </ApolloProvider>
   </React.StrictMode>,
   document.getElementById("root")

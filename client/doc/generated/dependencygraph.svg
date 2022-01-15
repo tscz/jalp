@@ -77,18 +77,18 @@
 </a>
 </g>
 </g>
-<!-- src/api/generated/books.ts -->
+<!-- src/api/generated/core.ts -->
 <g id="node5" class="node">
-<title>src/api/generated/books.ts</title>
-<g id="a_node5"><a xlink:href="src/api/generated/books.ts" xlink:title="books.ts">
+<title>src/api/generated/core.ts</title>
+<g id="a_node5"><a xlink:href="src/api/generated/core.ts" xlink:title="core.ts">
 <path fill="#ddfeff" stroke="black" d="M157.5,-126C157.5,-126 115.5,-126 115.5,-126 112.5,-126 109.5,-123 109.5,-120 109.5,-120 109.5,-114 109.5,-114 109.5,-111 112.5,-108 115.5,-108 115.5,-108 157.5,-108 157.5,-108 160.5,-108 163.5,-111 163.5,-114 163.5,-114 163.5,-120 163.5,-120 163.5,-123 160.5,-126 157.5,-126"/>
-<text text-anchor="start" x="117.5" y="-114.8" font-family="Helvetica,sans-Serif" font-size="9.00">books.ts</text>
+<text text-anchor="start" x="121" y="-114.8" font-family="Helvetica,sans-Serif" font-size="9.00">core.ts</text>
 </a>
 </g>
 </g>
-<!-- src/api/generated/books.ts&#45;&gt;node_modules/@apollo -->
+<!-- src/api/generated/core.ts&#45;&gt;node_modules/@apollo -->
 <g id="edge1" class="edge">
-<title>src/api/generated/books.ts&#45;&gt;node_modules/@apollo</title>
+<title>src/api/generated/core.ts&#45;&gt;node_modules/@apollo</title>
 <path fill="none" stroke="#000000" stroke-opacity="0.200000" d="M163.64,-109.25C178.52,-104.84 197.29,-99.28 213.1,-94.6"/>
 <polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-opacity="0.200000" points="214.07,-96.5 219.22,-92.79 212.87,-92.48 214.07,-96.5"/>
 </g>
@@ -128,9 +128,9 @@
 <path fill="none" stroke="#000000" stroke-opacity="0.200000" d="M50.4,-99.86C56.73,-87.77 69.57,-66.75 87,-56 124.18,-33.06 174.81,-26.56 208.75,-24.99"/>
 <polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-opacity="0.200000" points="208.97,-27.08 214.89,-24.75 208.81,-22.88 208.97,-27.08"/>
 </g>
-<!-- src/index.tsx&#45;&gt;src/api/generated/books.ts -->
+<!-- src/index.tsx&#45;&gt;src/api/generated/core.ts -->
 <g id="edge2" class="edge">
-<title>src/index.tsx&#45;&gt;src/api/generated/books.ts</title>
+<title>src/index.tsx&#45;&gt;src/api/generated/core.ts</title>
 <path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M74.32,-111.53C83.56,-112.36 93.89,-113.28 103.39,-114.13"/>
 <polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="103.33,-116.23 109.49,-114.68 103.7,-112.05 103.33,-116.23"/>
 </g>

@@ -6,7 +6,8 @@
   "scripts": {
     "start": "ts-node src/index.ts",
     "build": "tsc",
-    "generate": "graphql-codegen",
+    "generate": "rm -r -f ./src/domain/generated && rm -r -f ../client/src/api/generated && graphql-codegen",
+    "test": "npm run test:arch",
     "test:arch": "depcruise --config .dependency-cruiser.js src",
     "deps": "dependency-cruise -T dot -v -- src/index.ts | dot -T svg > ./doc/generated/dependencygraph.svg"
   },

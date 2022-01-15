@@ -13,25 +13,37 @@ export type Scalars = {
   Float: number;
 };
 
-/** A book */
-export type Book = {
-  __typename?: 'Book';
-  /** The author of a book */
-  author?: Maybe<Scalars['String']>;
-  /** A title of a book */
+/** A cheat sheet */
+export type CheatSheet = {
+  __typename?: 'CheatSheet';
+  /** A title of a cheat sheet */
   title?: Maybe<Scalars['String']>;
 };
 
-/** Get all books */
-export type Query = {
-  __typename?: 'Query';
-  books?: Maybe<Array<Maybe<Book>>>;
+/** A flashcard */
+export type Flashcard = {
+  __typename?: 'Flashcard';
+  /** A title of a flashcard */
+  title?: Maybe<Scalars['String']>;
 };
 
-export type GetBooksQueryVariables = Exact<{ [key: string]: never; }>;
+export type Query = {
+  __typename?: 'Query';
+  /** Get all cheat sheets */
+  cheatSheets?: Maybe<Array<Maybe<CheatSheet>>>;
+  /** Get all flashcards */
+  flashcards?: Maybe<Array<Maybe<Flashcard>>>;
+};
+
+export type GetFlashcardsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetBooksQuery = { __typename?: 'Query', books?: Array<{ __typename?: 'Book', author?: string | null | undefined, title?: string | null | undefined } | null | undefined> | null | undefined };
+export type GetFlashcardsQuery = { __typename?: 'Query', flashcards?: Array<{ __typename?: 'Flashcard', title?: string | null | undefined } | null | undefined> | null | undefined };
+
+export type GetCheatSheetsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetCheatSheetsQuery = { __typename?: 'Query', cheatSheets?: Array<{ __typename?: 'CheatSheet', title?: string | null | undefined } | null | undefined> | null | undefined };
 
 
 
@@ -102,32 +114,40 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = {
-  Book: ResolverTypeWrapper<Book>;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
+  CheatSheet: ResolverTypeWrapper<CheatSheet>;
+  Flashcard: ResolverTypeWrapper<Flashcard>;
   Query: ResolverTypeWrapper<{}>;
   String: ResolverTypeWrapper<Scalars['String']>;
 };
 
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = {
-  Book: Book;
   Boolean: Scalars['Boolean'];
+  CheatSheet: CheatSheet;
+  Flashcard: Flashcard;
   Query: {};
   String: Scalars['String'];
 };
 
-export type BookResolvers<ContextType = any, ParentType extends ResolversParentTypes['Book'] = ResolversParentTypes['Book']> = {
-  author?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+export type CheatSheetResolvers<ContextType = any, ParentType extends ResolversParentTypes['CheatSheet'] = ResolversParentTypes['CheatSheet']> = {
+  title?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type FlashcardResolvers<ContextType = any, ParentType extends ResolversParentTypes['Flashcard'] = ResolversParentTypes['Flashcard']> = {
   title?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
-  books?: Resolver<Maybe<Array<Maybe<ResolversTypes['Book']>>>, ParentType, ContextType>;
+  cheatSheets?: Resolver<Maybe<Array<Maybe<ResolversTypes['CheatSheet']>>>, ParentType, ContextType>;
+  flashcards?: Resolver<Maybe<Array<Maybe<ResolversTypes['Flashcard']>>>, ParentType, ContextType>;
 };
 
 export type Resolvers<ContextType = any> = {
-  Book?: BookResolvers<ContextType>;
+  CheatSheet?: CheatSheetResolvers<ContextType>;
+  Flashcard?: FlashcardResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
 };
 

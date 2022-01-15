@@ -1,14 +1,14 @@
-schema: ./src/domain/books.graphql
+schema: ./src/domain/core.graphql
 documents: './src/domain/**/*.graphql'
 generates:
-  ./src/domain/generated/books.ts:
+  ./src/domain/generated/core.ts:
     plugins:
       - typescript
       - typescript-operations
       - typescript-resolvers
       #- typescript-graphql-files-modules
       #- typescript-mongodb
-  ../client/src/api/generated/books.ts:
+  ../client/src/api/generated/core.ts:
      plugins:
       - typescript
       - typescript-operations
