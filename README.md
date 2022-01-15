@@ -1,4 +1,6 @@
 # JALP - Just Another Learning Platform
+
+<br>
 <p align="center">
     <img src="./jalp.svg" alt="logo" width="20%">
 </p>
@@ -17,11 +19,11 @@ Then you can start the client (default as localhost:3000) via
 npm run start:client
 ```
 
-## Domain
+## Domain of JALP
 The domain is based on a set of highlevel core concepts like flashcards, cheat sheets, roadmaps, and so on (see chapter regarding [core domains](#Core-Domain)). These core domain concepts are applied in concrete functional domains like learning languages, practicing music and sports (see chapter regarding [sub domains](#Sub-Domains)).
 
 
-### Core Domain
+### Core Domain - Flashcards, Cheatsheets, Roadmaps and practice schedules
 The platform uses different established learning practices to help a user keep motivated and to structurally learn these new things, i.e. using:
 - Flashcards  
   Flashcards are learning aids for memorizing. Combined with learning systems like the [Leitner-System](https://en.wikipedia.org/wiki/Leitner_system) they are efficient tools. I have a love-hate relationship to flashcards, I never liked using them but undoubtly they are quite effective (for me) for learning stuff based on memorizing. 
@@ -32,7 +34,7 @@ The platform uses different established learning practices to help a user keep m
 - Practice Schedules  
   Learning only creates knowledge but practice creates skill. A practice schedule helps to apply the knowledge on a daily bases. Often I started something interesting, got lost in the process and stopped practicing it.
 
-### Sub Domains
+### Sub Domains - Learning and Practicing Language, Music, Software Development and Sports
 
 ### Sub Domain 1: Learning Korean
 The platform offers it to create and use vocabulary flashcards in Korean. Also it helps measuring progress. Also grammar flashcards are supported and dynamic tests are possible.
@@ -51,7 +53,11 @@ Basic idea is a typescript based server-/client-application based on hexagonal a
 
 ### GraphQL Domain
 #### Code generation
-TODO
+The domain model is a server driven domain model. It is generated based on graphql inputs via
+```bash
+npm run codegen
+```
+For more details see npm scripts within package.json files.
 
 ### Server
 The server is a monolothic nodejs application.
