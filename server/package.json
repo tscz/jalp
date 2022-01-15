@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "ts-node src/index.ts",
+    "build": "tsc",
     "generate": "graphql-codegen",
     "test:arch": "depcruise --config .dependency-cruiser.js src",
     "deps": "dependency-cruise -T dot -v -- src/index.ts | dot -T svg > ./doc/generated/dependencygraph.svg"

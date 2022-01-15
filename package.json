@@ -1,0 +1,21 @@
+{
+  "name": "jalp",
+  "version": "1.0.0",
+  "description": "Just Another Learning Platform (JALP)",
+  "scripts": {
+    "ci:client": "cd ./client && npm ci ",
+    "ci:server": "cd ./server && npm ci ",
+    "build:client": "cd ./client && npm run build",
+    "build:server": "cd ./server && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tscz/jalp.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tscz/jalp/issues"
+  },
+  "homepage": "https://github.com/tscz/jalp#readme"
+}
