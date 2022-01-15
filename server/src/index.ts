@@ -1,4 +1,4 @@
 import { GraphQLController } from "./adapter/in/web/GraphQLController";
-import { mockConfig } from "./config/mockConfig";
+import { mockConfig } from "./config";
 
 GraphQLController.start(mockConfig);

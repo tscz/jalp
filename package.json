@@ -12,7 +12,9 @@
     "codegen": "cd ./server && npm run codegen",
     "deps:client": "cd ./client && npm run deps",
     "deps:server": "cd ./server && npm run deps",
-    "deps": "npm run deps:server && npm run deps:client"
+    "deps": "npm run deps:server && npm run deps:client",
+    "start:client": "cd ./client && npm run start",
+    "start:server": "cd ./server && npm run start"
   },
   "repository": {
     "type": "git",

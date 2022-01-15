@@ -2,7 +2,14 @@
 This is just another learning platform (JALP) to enable a user to learn and practice new things of interest. 
 
 ## Getting started
-TODO
+First start the server locally (default as localhost:4000) via
+```bash
+npm run start:server
+```
+Then you can start the client (default as localhost:3000) via
+```bash
+npm run start:client
+```
 
 ## Domain
 The domain is based on a set of highlevel core concepts like flashcards, cheat sheets, roadmaps, and so on (see chapter regarding [core domains](#Core-Domain)). These core domain concepts are applied in concrete functional domains like learning languages, practicing music and sports (see chapter regarding [sub domains](#Sub-Domains)).

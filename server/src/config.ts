@@ -1,7 +1,7 @@
-import { Config } from "../adapter/in/web/GraphQLController";
-import { MockPersistanceAdapter } from "../adapter/out/persistence/MockPersistenceAdapter";
-import { CheatsheetService } from "../application/service/CheatsheetService";
-import { FlashcardService } from "../application/service/FlashcardService";
+import { Config } from "./adapter/in/web/GraphQLController";
+import { MockPersistanceAdapter } from "./adapter/out/persistence/MockPersistenceAdapter";
+import { CheatsheetService } from "./application/service/CheatsheetService";
+import { FlashcardService } from "./application/service/FlashcardService";
 
 const inMemoryPersistenceMock = new MockPersistanceAdapter();
 const flashcardServiceMock = new FlashcardService(inMemoryPersistenceMock);
