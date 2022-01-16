@@ -10,7 +10,8 @@
     "test": "npm run test:arch",
     "test:arch": "depcruise --config .dependency-cruiser.js src",
     "deps": "dependency-cruise -T dot -v -- src/index.ts | dot -T svg > ./doc/generated/dependencygraph.svg",
-    "lint": "eslint \"**/*.+(ts|graphql)\"",
+    "lint": "npm run lint:eslint && npm run lint:graphql",
+    "lint:eslint": "eslint \"**/*.+(ts|graphql)\"",
     "lint:graphql": "graphql-schema-linter --except relay-page-info-spec"
   },
   "keywords": [],

@@ -26,8 +26,15 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm ci
-    - run: npm run ci
-    - run: mkdir -p /home/runner/.npm
-    - run: npm run build --if-present
-    - run: npm test --if-present
+    - name: Install deps for root project
+      run: npm ci 
+    - name: Install deps for sub-projects
+      run: npm run ci
+    - name: Create empty temp folder as workaround for github actions/setup-node@v2 failure
+      run: mkdir -p /home/runner/.npm
+    - name: Lint all projects
+      run: npm run lint
+    - name: Build all projects
+      run: npm run build
+    - name: Test all projects
+      run: npm test
