@@ -2,6 +2,9 @@
   "name": "jalp",
   "version": "1.0.0",
   "description": "Just Another Learning Platform (JALP)",
+  "engines": {
+    "node": "16.x"
+  },
   "scripts": {
     "ci:client": "cd ./client && npm ci ",
     "ci:server": "cd ./server && npm ci ",
