@@ -1,7 +1,9 @@
-import { GraphQLController } from "./adapter/in/web/GraphQLController";
-import { mockConfig } from "./config.mock";
+import { Config, GraphQLController } from "./adapter/in/web/GraphQLController";
+import { createMockConfig } from "./config.mock";
 import yargs from "yargs/yargs";
-import { prodConfig } from "./config.prod";
+import { createProdConfig } from "./config.prod";
+
+const dbUri = process.env.DB_URI;
 
 const argv = yargs(process.argv.slice(2))
   .options({
@@ -15,14 +17,20 @@ const argv = yargs(process.argv.slice(2))
 
 console.log(`🎛️   Server started with config profile "${argv.config}"`);
 
-let config = mockConfig;
+let config: Config;
 
 switch (argv.config) {
   case "mock":
-    config = mockConfig;
+    config = createMockConfig();
     break;
   case "prod":
-    config = prodConfig;
+    if (!dbUri) {
+      throw new Error(
+        "No DB uri is given. Please set environment variable DB_URI."
+      );
+    }
+
+    config = createProdConfig(dbUri);
     break;
   default:
     throw new Error(`unknown config profile "${argv.config}"`);

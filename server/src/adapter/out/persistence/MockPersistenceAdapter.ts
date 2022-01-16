@@ -5,11 +5,17 @@ import { Cheatsheet, Flashcard } from "../../../domain/generated/core";
 export class MockPersistanceAdapter
   implements LoadFlashcardPort, LoadCheatsheetPort
 {
+  constructor() {
+    console.log(
+      "🗄️   Server connected successfully to InMemory Persistence Mock DB"
+    );
+  }
+
   getCheatsheets() {
-    return cheatsheets;
+    return Promise.resolve(cheatsheets);
   }
   getFlashcards() {
-    return books;
+    return Promise.resolve(books);
   }
 }
 

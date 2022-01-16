@@ -3,11 +3,13 @@ import { MockPersistanceAdapter } from "./adapter/out/persistence/MockPersistenc
 import { CheatsheetService } from "./application/service/CheatsheetService";
 import { FlashcardService } from "./application/service/FlashcardService";
 
-const inMemoryPersistenceMock = new MockPersistanceAdapter();
-const flashcardServiceMock = new FlashcardService(inMemoryPersistenceMock);
-const cheatsheetServiceMock = new CheatsheetService(inMemoryPersistenceMock);
+export const createMockConfig: () => Config = () => {
+  const inMemoryPersistenceMock = new MockPersistanceAdapter();
+  const flashcardServiceMock = new FlashcardService(inMemoryPersistenceMock);
+  const cheatsheetServiceMock = new CheatsheetService(inMemoryPersistenceMock);
 
-export const mockConfig: Config = {
-  getFlashcardsQuery: flashcardServiceMock,
-  getCheatsheetsQuery: cheatsheetServiceMock,
+  return {
+    getFlashcardsQuery: flashcardServiceMock,
+    getCheatsheetsQuery: cheatsheetServiceMock,
+  };
 };

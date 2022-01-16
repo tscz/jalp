@@ -1,13 +1,15 @@
 import { Config } from "./adapter/in/web/GraphQLController";
-import { MockPersistanceAdapter } from "./adapter/out/persistence/MockPersistenceAdapter";
+import { MongodbPersistanceAdapter } from "./adapter/out/persistence/MongodbPersistenceAdapter";
 import { CheatsheetService } from "./application/service/CheatsheetService";
 import { FlashcardService } from "./application/service/FlashcardService";
 
-const inMemoryPersistenceMock = new MockPersistanceAdapter();
-const flashcardServiceMock = new FlashcardService(inMemoryPersistenceMock);
-const cheatsheetServiceMock = new CheatsheetService(inMemoryPersistenceMock);
+export const createProdConfig: (dbUri: string) => Config = (dbUri) => {
+  const mongodbPersistenceAdapter = new MongodbPersistanceAdapter(dbUri);
+  const flashcardService = new FlashcardService(mongodbPersistenceAdapter);
+  const cheatsheetService = new CheatsheetService(mongodbPersistenceAdapter);
 
-export const prodConfig: Config = {
-  getFlashcardsQuery: flashcardServiceMock,
-  getCheatsheetsQuery: cheatsheetServiceMock,
+  return {
+    getFlashcardsQuery: flashcardService,
+    getCheatsheetsQuery: cheatsheetService,
+  };
 };
