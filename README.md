@@ -34,7 +34,7 @@ The platform uses different established learning practices to help a user keep m
 - Practice Schedules  
   Learning only creates knowledge but practice creates skill. A practice schedule helps to apply the knowledge on a daily bases. Often I started something interesting, got lost in the process and stopped practicing it.
 
-### Sub Domains - Learning and Practicing Language, Music, Software Development and Sports
+### Sub Domains - Language, Music, Dev and Sports
 
 ### Sub Domain 1: Learning Korean
 The platform offers it to create and use vocabulary flashcards in Korean. Also it helps measuring progress. Also grammar flashcards are supported and dynamic tests are possible.
@@ -60,13 +60,13 @@ npm run codegen
 For more details see npm scripts within package.json files.
 
 ### Server
-The server is a monolothic nodejs application.
+The server is a monolithic nodejs application.
 
 #### Dependency Diagram Server
 <img src="./server/doc/generated/dependencygraph.svg" style="width:100%">
 
 #### Architecture Linting
-TODO
+TODO. See [dependency cruiser profile](./server/.dependency-cruiser.js).
 
 ### Client
 The client is a react application.
@@ -76,6 +76,25 @@ The client is a react application.
 
 ### Build
 TODO
+```bash
+npm run build
+```
+For more details see npm scripts within package.json files.
+
+### Test
+TODO
+```bash
+npm run test
+```
+For more details see npm scripts within package.json files.
+
+### Lint
+TODO
+```bash
+npm run lint
+```
+For more details see npm scripts within package.json files.
+
 
 ## License
 Icons by [svgrepo.com](https://www.svgrepo.com/svg/357225/student)
