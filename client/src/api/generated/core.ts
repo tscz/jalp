@@ -18,6 +18,8 @@ export type Scalars = {
 /** A cheat sheet */
 export type Cheatsheet = {
   __typename?: 'Cheatsheet';
+  /** Unique id of a cheatsheet */
+  id: Scalars['ID'];
   /** A title of a cheat sheet */
   title?: Maybe<Scalars['String']>;
 };
@@ -25,10 +27,26 @@ export type Cheatsheet = {
 /** A flashcard */
 export type Flashcard = {
   __typename?: 'Flashcard';
+  /** Unique id of a flashcard */
+  id: Scalars['ID'];
   /** A title of a flashcard */
   title?: Maybe<Scalars['String']>;
 };
 
+/** PageInfo type */
+export type PageInfo = {
+  __typename?: 'PageInfo';
+  /** End Cursor */
+  endCursor?: Maybe<Scalars['String']>;
+  /** Is true if there is a next page */
+  hasNextPage: Scalars['Boolean'];
+  /** Is true if there is a previous page */
+  hasPreviousPage: Scalars['Boolean'];
+  /** Start Cursor */
+  startCursor?: Maybe<Scalars['String']>;
+};
+
+/** Queries */
 export type Query = {
   __typename?: 'Query';
   /** Get all cheat sheets */

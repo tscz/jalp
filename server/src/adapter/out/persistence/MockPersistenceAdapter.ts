@@ -14,18 +14,13 @@ export class MockPersistanceAdapter
 }
 
 const cheatsheets: Cheatsheet[] = [
+  { id: "1", title: "The first cheatsheet" },
   {
-    title: "The first cheatsheet",
-  },
-  {
+    id: "2",
     title: "The second cheatsheet",
   },
 ];
 const books: Flashcard[] = [
-  {
-    title: "The first flashcard",
-  },
-  {
-    title: "The second flashcard",
-  },
+  { id: "1", title: "The first flashcard" },
+  { id: "2", title: "The second flashcard" },
 ];

@@ -22,17 +22,24 @@ export class GraphQLController {
 
     loadSchema("src/domain/**/*.graphql", {
       loaders: [new GraphQLFileLoader()],
-    }).then((schema) => {
-      const schemaWithResolvers = addResolversToSchema({
-        schema,
-        resolvers,
-      });
+    })
+      .then((schema) => {
+        const schemaWithResolvers = addResolversToSchema({
+          schema,
+          resolvers,
+        });
 
-      const server = new ApolloServer({ schema: schemaWithResolvers });
+        const server = new ApolloServer({ schema: schemaWithResolvers });
 
-      server.listen().then(({ url }) => {
-        console.log(`🚀  Server ready at ${url}`);
+        server
+          .listen()
+          .then(({ url }) => {
+            console.log(`🚀  Server ready at ${url}`);
+          })
+          .catch((error) => console.log(error));
+      })
+      .catch((error) => {
+        console.log(error);
       });
-    });
   }
 }

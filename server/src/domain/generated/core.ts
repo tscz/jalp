@@ -16,6 +16,8 @@ export type Scalars = {
 /** A cheat sheet */
 export type Cheatsheet = {
   __typename?: 'Cheatsheet';
+  /** Unique id of a cheatsheet */
+  id: Scalars['ID'];
   /** A title of a cheat sheet */
   title?: Maybe<Scalars['String']>;
 };
@@ -23,10 +25,26 @@ export type Cheatsheet = {
 /** A flashcard */
 export type Flashcard = {
   __typename?: 'Flashcard';
+  /** Unique id of a flashcard */
+  id: Scalars['ID'];
   /** A title of a flashcard */
   title?: Maybe<Scalars['String']>;
 };
 
+/** PageInfo type */
+export type PageInfo = {
+  __typename?: 'PageInfo';
+  /** End Cursor */
+  endCursor?: Maybe<Scalars['String']>;
+  /** Is true if there is a next page */
+  hasNextPage: Scalars['Boolean'];
+  /** Is true if there is a previous page */
+  hasPreviousPage: Scalars['Boolean'];
+  /** Start Cursor */
+  startCursor?: Maybe<Scalars['String']>;
+};
+
+/** Queries */
 export type Query = {
   __typename?: 'Query';
   /** Get all cheat sheets */
@@ -117,6 +135,8 @@ export type ResolversTypes = {
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
   Cheatsheet: ResolverTypeWrapper<Cheatsheet>;
   Flashcard: ResolverTypeWrapper<Flashcard>;
+  ID: ResolverTypeWrapper<Scalars['ID']>;
+  PageInfo: ResolverTypeWrapper<PageInfo>;
   Query: ResolverTypeWrapper<{}>;
   String: ResolverTypeWrapper<Scalars['String']>;
 };
@@ -126,17 +146,29 @@ export type ResolversParentTypes = {
   Boolean: Scalars['Boolean'];
   Cheatsheet: Cheatsheet;
   Flashcard: Flashcard;
+  ID: Scalars['ID'];
+  PageInfo: PageInfo;
   Query: {};
   String: Scalars['String'];
 };
 
 export type CheatsheetResolvers<ContextType = any, ParentType extends ResolversParentTypes['Cheatsheet'] = ResolversParentTypes['Cheatsheet']> = {
+  id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   title?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
 export type FlashcardResolvers<ContextType = any, ParentType extends ResolversParentTypes['Flashcard'] = ResolversParentTypes['Flashcard']> = {
+  id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   title?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type PageInfoResolvers<ContextType = any, ParentType extends ResolversParentTypes['PageInfo'] = ResolversParentTypes['PageInfo']> = {
+  endCursor?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  hasNextPage?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
+  hasPreviousPage?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
+  startCursor?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -148,6 +180,7 @@ export type QueryResolvers<ContextType = any, ParentType extends ResolversParent
 export type Resolvers<ContextType = any> = {
   Cheatsheet?: CheatsheetResolvers<ContextType>;
   Flashcard?: FlashcardResolvers<ContextType>;
+  PageInfo?: PageInfoResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
 };
 
