@@ -11,7 +11,7 @@
     "ci": "npm run ci:server && npm run ci:client",
     "build:client": "cd ./client && npm run build",
     "build:server": "cd ./server && npm run build",
-    "build": "npm run build:server && npm run build:client",
+    "build": "npm run ci && npm run build:server && npm run build:client",
     "codegen": "cd ./server && npm run codegen",
     "deps:client": "cd ./client && npm run deps",
     "deps:server": "cd ./server && npm run deps",
