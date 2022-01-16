@@ -1,0 +1,6 @@
+{
+    "rules": [],
+    "schemaPaths": [
+        "src/domain/**.graphql"
+    ]
+}

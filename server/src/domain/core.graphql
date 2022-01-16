@@ -31,28 +31,6 @@ type Cheatsheet {
 }
 
 """
-PageInfo type
-"""
-type PageInfo {
-  """
-  End Cursor
-  """
-  endCursor: String
-  """
-  Is true if there is a next page
-  """
-  hasNextPage: Boolean!
-  """
-  Is true if there is a previous page
-  """
-  hasPreviousPage: Boolean!
-  """
-  Start Cursor
-  """
-  startCursor: String
-}
-
-"""
 Queries
 """
 type Query {

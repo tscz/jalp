@@ -33,19 +33,6 @@ export type Flashcard = {
   title?: Maybe<Scalars['String']>;
 };
 
-/** PageInfo type */
-export type PageInfo = {
-  __typename?: 'PageInfo';
-  /** End Cursor */
-  endCursor?: Maybe<Scalars['String']>;
-  /** Is true if there is a next page */
-  hasNextPage: Scalars['Boolean'];
-  /** Is true if there is a previous page */
-  hasPreviousPage: Scalars['Boolean'];
-  /** Start Cursor */
-  startCursor?: Maybe<Scalars['String']>;
-};
-
 /** Queries */
 export type Query = {
   __typename?: 'Query';

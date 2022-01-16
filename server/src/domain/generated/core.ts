@@ -31,19 +31,6 @@ export type Flashcard = {
   title?: Maybe<Scalars['String']>;
 };
 
-/** PageInfo type */
-export type PageInfo = {
-  __typename?: 'PageInfo';
-  /** End Cursor */
-  endCursor?: Maybe<Scalars['String']>;
-  /** Is true if there is a next page */
-  hasNextPage: Scalars['Boolean'];
-  /** Is true if there is a previous page */
-  hasPreviousPage: Scalars['Boolean'];
-  /** Start Cursor */
-  startCursor?: Maybe<Scalars['String']>;
-};
-
 /** Queries */
 export type Query = {
   __typename?: 'Query';
@@ -136,7 +123,6 @@ export type ResolversTypes = {
   Cheatsheet: ResolverTypeWrapper<Cheatsheet>;
   Flashcard: ResolverTypeWrapper<Flashcard>;
   ID: ResolverTypeWrapper<Scalars['ID']>;
-  PageInfo: ResolverTypeWrapper<PageInfo>;
   Query: ResolverTypeWrapper<{}>;
   String: ResolverTypeWrapper<Scalars['String']>;
 };
@@ -147,7 +133,6 @@ export type ResolversParentTypes = {
   Cheatsheet: Cheatsheet;
   Flashcard: Flashcard;
   ID: Scalars['ID'];
-  PageInfo: PageInfo;
   Query: {};
   String: Scalars['String'];
 };
@@ -164,14 +149,6 @@ export type FlashcardResolvers<ContextType = any, ParentType extends ResolversPa
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
-export type PageInfoResolvers<ContextType = any, ParentType extends ResolversParentTypes['PageInfo'] = ResolversParentTypes['PageInfo']> = {
-  endCursor?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  hasNextPage?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
-  hasPreviousPage?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
-  startCursor?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-};
-
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
   cheatsheets?: Resolver<Maybe<Array<Maybe<ResolversTypes['Cheatsheet']>>>, ParentType, ContextType>;
   flashcards?: Resolver<Maybe<Array<Maybe<ResolversTypes['Flashcard']>>>, ParentType, ContextType>;
@@ -180,7 +157,6 @@ export type QueryResolvers<ContextType = any, ParentType extends ResolversParent
 export type Resolvers<ContextType = any> = {
   Cheatsheet?: CheatsheetResolvers<ContextType>;
   Flashcard?: FlashcardResolvers<ContextType>;
-  PageInfo?: PageInfoResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
 };
 
