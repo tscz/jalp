@@ -23,7 +23,9 @@ function Flashcards() {
       <h1>Flashcards</h1>
       {data!.flashcards!.map((flashcard) => (
         <div key={flashcard?.title}>
-          <p>{flashcard?.title}</p>
+          <p>
+            {flashcard?.id}:{flashcard?.title}
+          </p>
         </div>
       ))}
     </>
@@ -40,7 +42,9 @@ function Cheatsheets() {
       <h1>Cheatsheets</h1>
       {data!.cheatsheets!.map((cheatsheet) => (
         <div key={cheatsheet?.title}>
-          <p>{cheatsheet?.title}</p>
+          <p>
+            {cheatsheet?.id}:{cheatsheet?.title}
+          </p>
         </div>
       ))}
     </>

@@ -6,7 +6,7 @@ import { Cheatsheet, Flashcard } from "../../../domain/generated/core";
 export class MongodbPersistanceAdapter
   implements LoadFlashcardPort, LoadCheatsheetPort
 {
-  private db: Db | undefined = undefined;
+  private db: Db | undefined;
 
   constructor(uri: string) {
     const client = new MongoClient(uri);
@@ -26,7 +26,10 @@ export class MongodbPersistanceAdapter
       : this.db
           .collection<Cheatsheet>("cheatsheets")
           .find()
-          .map<Cheatsheet>((cheatsheet) => cheatsheet)
+          .map<Cheatsheet>((doc) => ({
+            id: doc._id.toString(),
+            title: doc.title,
+          }))
           .toArray();
   }
   getFlashcards() {
@@ -35,7 +38,10 @@ export class MongodbPersistanceAdapter
       : this.db
           .collection<Flashcard>("flashcards")
           .find()
-          .map<Flashcard>((flashcard) => flashcard)
+          .map<Flashcard>((doc) => ({
+            id: doc._id.toString(),
+            title: doc.title,
+          }))
           .toArray();
   }
 }

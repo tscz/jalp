@@ -43,12 +43,12 @@ export type Query = {
 export type GetFlashcardsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetFlashcardsQuery = { __typename?: 'Query', flashcards?: Array<{ __typename?: 'Flashcard', title?: string | null | undefined } | null | undefined> | null | undefined };
+export type GetFlashcardsQuery = { __typename?: 'Query', flashcards?: Array<{ __typename?: 'Flashcard', id: string, title?: string | null | undefined } | null | undefined> | null | undefined };
 
 export type GetCheatsheetsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetCheatsheetsQuery = { __typename?: 'Query', cheatsheets?: Array<{ __typename?: 'Cheatsheet', title?: string | null | undefined } | null | undefined> | null | undefined };
+export type GetCheatsheetsQuery = { __typename?: 'Query', cheatsheets?: Array<{ __typename?: 'Cheatsheet', id: string, title?: string | null | undefined } | null | undefined> | null | undefined };
 
 
 

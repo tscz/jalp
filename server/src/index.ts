@@ -2,7 +2,9 @@ import { Config, GraphQLController } from "./adapter/in/web/GraphQLController";
 import { createMockConfig } from "./config.mock";
 import yargs from "yargs/yargs";
 import { createProdConfig } from "./config.prod";
+import dotenv from "dotenv";
 
+dotenv.config();
 const dbUri = process.env.DB_URI;
 
 const argv = yargs(process.argv.slice(2))

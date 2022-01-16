@@ -47,12 +47,14 @@ type Query {
 
 query GetFlashcards {
   flashcards {
+    id
     title
   }
 }
 
 query GetCheatsheets {
   cheatsheets {
+    id
     title
   }
 }

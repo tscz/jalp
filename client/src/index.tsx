@@ -5,7 +5,7 @@ import reportWebVitals from "./reportWebVitals";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import App from "./App";
 
-const uri = process.env.REACT_APP_API_URL;
+const uri = process.env.REACT_APP_API_URL ?? "http://localhost:4000/";
 
 const client = new ApolloClient({
   uri,
