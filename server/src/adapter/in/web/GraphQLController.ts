@@ -5,10 +5,12 @@ import { addResolversToSchema } from "@graphql-tools/schema";
 import { Resolvers } from "../../../domain/generated/core";
 import { GetFlashcardsQuery } from "../../../application/port/in/GetFlashcardsQuery";
 import { GetCheatsheetsQuery } from "../../../application/port/in/GetCheatsheetQuery";
+import { GetDictionaryQuery } from "../../../application/port/in/GetDictionaryQuery";
 
 export type Config = {
   getFlashcardsQuery: GetFlashcardsQuery;
   getCheatsheetsQuery: GetCheatsheetsQuery;
+  getDictionaryQuery: GetDictionaryQuery;
 };
 
 export class GraphQLController {
@@ -17,6 +19,7 @@ export class GraphQLController {
       Query: {
         flashcards: () => config.getFlashcardsQuery.getFlashcards(),
         cheatsheets: () => config.getCheatsheetsQuery.getCheatsheets(),
+        entries: () => config.getDictionaryQuery.getDictionary(),
       },
     };
 

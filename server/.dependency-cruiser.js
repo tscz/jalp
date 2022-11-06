@@ -14,8 +14,13 @@ module.exports = {
     {
       name: "no-deps-between-adapters",
       severity: "error",
-      from: { path: "src/adapter" },
-      to: { path: "src/adapter" },
+      from: {
+        path: "src/adapter",
+      },
+      to: {
+        path: "src/adapter",
+        pathNot: "word-list.json", // ignore test data
+      },
     },
     {
       name: "no-deps-from-application-to-adapter",

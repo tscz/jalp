@@ -1,15 +1,32 @@
+import { container } from "tsyringe";
 import { Config } from "./adapter/in/web/GraphQLController";
-import { MockPersistanceAdapter } from "./adapter/out/persistence/MockPersistenceAdapter";
+import { MockPersistenceAdapter } from "./adapter/out/persistence/MockPersistenceAdapter";
+import {
+  LoadCheatsheetPort,
+  LoadCheatsheetPortInjectionToken,
+} from "./application/port/out/loadCheatsheetPort";
+import { LoadDictionaryPort } from "./application/port/out/loadDictionaryPort";
+import { LoadFlashcardPort } from "./application/port/out/loadFlashcardPort";
 import { CheatsheetService } from "./application/service/CheatsheetService";
+import { DictionaryService } from "./application/service/DictionaryService";
 import { FlashcardService } from "./application/service/FlashcardService";
 
 export const createMockConfig: () => Config = () => {
-  const inMemoryPersistenceMock = new MockPersistanceAdapter();
-  const flashcardServiceMock = new FlashcardService(inMemoryPersistenceMock);
-  const cheatsheetServiceMock = new CheatsheetService(inMemoryPersistenceMock);
+  const inMemoryPersistenceMock = new MockPersistenceAdapter();
+
+  container.register<LoadCheatsheetPort>(LoadCheatsheetPortInjectionToken, {
+    useValue: inMemoryPersistenceMock,
+  });
+  container.register<LoadDictionaryPort>("LoadDictionaryPort", {
+    useValue: inMemoryPersistenceMock,
+  });
+  container.register<LoadFlashcardPort>("LoadFlashcardPort", {
+    useValue: inMemoryPersistenceMock,
+  });
 
   return {
-    getFlashcardsQuery: flashcardServiceMock,
-    getCheatsheetsQuery: cheatsheetServiceMock,
+    getFlashcardsQuery: container.resolve(FlashcardService),
+    getCheatsheetsQuery: container.resolve(CheatsheetService),
+    getDictionaryQuery: container.resolve(DictionaryService),
   };
 };

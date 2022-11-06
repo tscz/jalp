@@ -13,6 +13,34 @@ export type Scalars = {
   Float: number;
 };
 
+/** Category of a dictionary entry */
+export enum Category {
+  /** Adjective */
+  Adjective = 'ADJECTIVE',
+  /** "Adverb" */
+  Adverb = 'ADVERB',
+  /** "Auxiliary Verb" */
+  AuxiliaryVerb = 'AUXILIARY_VERB',
+  /** "Dependent Noun" */
+  DependentNoun = 'DEPENDENT_NOUN',
+  /** "Determiner" */
+  Determiner = 'DETERMINER',
+  /** "Interjection" */
+  Interjection = 'INTERJECTION',
+  /** "Noun" */
+  Noun = 'NOUN',
+  /** "Numeral" */
+  Numeral = 'NUMERAL',
+  /** "Pronoun" */
+  Pronoun = 'PRONOUN',
+  /** "Proper Noun" */
+  ProperNoun = 'PROPER_NOUN',
+  /** "Unknown" */
+  Unknown = 'UNKNOWN',
+  /** "Verb" */
+  Verb = 'VERB'
+}
+
 /** A cheat sheet */
 export type Cheatsheet = {
   __typename?: 'Cheatsheet';
@@ -20,6 +48,37 @@ export type Cheatsheet = {
   id: Scalars['ID'];
   /** A title of a cheat sheet */
   title?: Maybe<Scalars['String']>;
+};
+
+/** Difficulty of a dictionary entry */
+export enum Difficulty {
+  /** Easy */
+  Easy = 'EASY',
+  /** Hard */
+  Hard = 'HARD',
+  /** Medium */
+  Medium = 'MEDIUM'
+}
+
+/** A dictionary Entry */
+export type Entry = {
+  __typename?: 'Entry';
+  /** The translation for the word */
+  category?: Maybe<Category>;
+  /** The difficulty rank */
+  difficulty?: Maybe<Difficulty>;
+  /** Usage Examples */
+  examples?: Maybe<Array<Maybe<Scalars['String']>>>;
+  /** The explanation */
+  explanations?: Maybe<Scalars['String']>;
+  /** The frequency rank */
+  frequencyRank?: Maybe<Scalars['Int']>;
+  /** Unique id of an entry */
+  id: Scalars['ID'];
+  /** The translation */
+  translation?: Maybe<Scalars['String']>;
+  /** The word defining this entry */
+  word?: Maybe<Scalars['String']>;
 };
 
 /** A flashcard */
@@ -36,19 +95,26 @@ export type Query = {
   __typename?: 'Query';
   /** Get all cheat sheets */
   cheatsheets?: Maybe<Array<Maybe<Cheatsheet>>>;
+  /** Get all vocabulary entries */
+  entries?: Maybe<Array<Maybe<Entry>>>;
   /** Get all flashcards */
   flashcards?: Maybe<Array<Maybe<Flashcard>>>;
 };
 
+export type GetVocabularyQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetVocabularyQuery = { __typename?: 'Query', entries?: Array<{ __typename?: 'Entry', id: string, word?: string | null } | null> | null };
+
 export type GetFlashcardsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetFlashcardsQuery = { __typename?: 'Query', flashcards?: Array<{ __typename?: 'Flashcard', id: string, title?: string | null | undefined } | null | undefined> | null | undefined };
+export type GetFlashcardsQuery = { __typename?: 'Query', flashcards?: Array<{ __typename?: 'Flashcard', id: string, title?: string | null } | null> | null };
 
 export type GetCheatsheetsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetCheatsheetsQuery = { __typename?: 'Query', cheatsheets?: Array<{ __typename?: 'Cheatsheet', id: string, title?: string | null | undefined } | null | undefined> | null | undefined };
+export type GetCheatsheetsQuery = { __typename?: 'Query', cheatsheets?: Array<{ __typename?: 'Cheatsheet', id: string, title?: string | null } | null> | null };
 
 
 
@@ -120,9 +186,13 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = {
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
+  Category: Category;
   Cheatsheet: ResolverTypeWrapper<Cheatsheet>;
+  Difficulty: Difficulty;
+  Entry: ResolverTypeWrapper<Entry>;
   Flashcard: ResolverTypeWrapper<Flashcard>;
   ID: ResolverTypeWrapper<Scalars['ID']>;
+  Int: ResolverTypeWrapper<Scalars['Int']>;
   Query: ResolverTypeWrapper<{}>;
   String: ResolverTypeWrapper<Scalars['String']>;
 };
@@ -131,8 +201,10 @@ export type ResolversTypes = {
 export type ResolversParentTypes = {
   Boolean: Scalars['Boolean'];
   Cheatsheet: Cheatsheet;
+  Entry: Entry;
   Flashcard: Flashcard;
   ID: Scalars['ID'];
+  Int: Scalars['Int'];
   Query: {};
   String: Scalars['String'];
 };
@@ -140,6 +212,18 @@ export type ResolversParentTypes = {
 export type CheatsheetResolvers<ContextType = any, ParentType extends ResolversParentTypes['Cheatsheet'] = ResolversParentTypes['Cheatsheet']> = {
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   title?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type EntryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Entry'] = ResolversParentTypes['Entry']> = {
+  category?: Resolver<Maybe<ResolversTypes['Category']>, ParentType, ContextType>;
+  difficulty?: Resolver<Maybe<ResolversTypes['Difficulty']>, ParentType, ContextType>;
+  examples?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
+  explanations?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  frequencyRank?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
+  translation?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  word?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -151,11 +235,13 @@ export type FlashcardResolvers<ContextType = any, ParentType extends ResolversPa
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
   cheatsheets?: Resolver<Maybe<Array<Maybe<ResolversTypes['Cheatsheet']>>>, ParentType, ContextType>;
+  entries?: Resolver<Maybe<Array<Maybe<ResolversTypes['Entry']>>>, ParentType, ContextType>;
   flashcards?: Resolver<Maybe<Array<Maybe<ResolversTypes['Flashcard']>>>, ParentType, ContextType>;
 };
 
 export type Resolvers<ContextType = any> = {
   Cheatsheet?: CheatsheetResolvers<ContextType>;
+  Entry?: EntryResolvers<ContextType>;
   Flashcard?: FlashcardResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
 };

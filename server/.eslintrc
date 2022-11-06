@@ -30,6 +30,9 @@
             "parserOptions": {
                 "operations": "./src/**/*.graphql",
                 "schema": "./src/domain/core.graphql"
+            },
+            "rules": {
+                "@graphql-eslint/no-unreachable-types": "off"
             }
         }
     ]

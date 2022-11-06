@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import { Config, GraphQLController } from "./adapter/in/web/GraphQLController";
 import { createMockConfig } from "./config.mock";
 import yargs from "yargs/yargs";

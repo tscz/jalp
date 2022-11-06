@@ -30,6 +30,141 @@ type Cheatsheet {
   title: String
 }
 
+# Domain for Learning Korean
+
+"""
+A dictionary Entry
+"""
+type Entry {
+  """
+  The translation for the word
+  """
+  category: Category
+
+  """
+  The difficulty rank
+  """
+  difficulty: Difficulty
+
+  """
+  Usage Examples
+  """
+  examples: [String]
+
+  """
+  The explanation
+  """
+  explanations: String
+
+  """
+  The frequency rank
+  """
+  frequencyRank: Int
+
+  """
+  Unique id of an entry
+  """
+  id: ID!
+
+  """
+  The translation
+  """
+  translation: String
+
+  """
+  The word defining this entry
+  """
+  word: String
+}
+
+"""
+Difficulty of a dictionary entry
+"""
+enum Difficulty {
+  """
+  Easy
+  """
+  EASY
+
+  """
+  Hard
+  """
+  HARD
+
+  """
+  Medium
+  """
+  MEDIUM
+}
+
+"""
+Category of a dictionary entry
+"""
+enum Category {
+  """
+  Adjective
+  """
+  ADJECTIVE
+  """
+  "Adverb"
+  """
+  ADVERB
+  """
+  "Auxiliary Verb"
+  """
+  AUXILIARY_VERB
+  """
+  "Dependent Noun"
+  """
+  DEPENDENT_NOUN
+  """
+  "Determiner"
+  """
+  DETERMINER
+  """
+  "Interjection"
+  """
+  INTERJECTION
+  """
+  "Noun"
+  """
+  NOUN
+  """
+  "Numeral"
+  """
+  NUMERAL
+  """
+  "Pronoun"
+  """
+  PRONOUN
+  """
+  "Proper Noun"
+  """
+  PROPER_NOUN
+  """
+  "Unknown"
+  """
+  UNKNOWN
+  """
+  "Verb"
+  """
+  VERB
+}
+
+extend type Query {
+  """
+  Get all vocabulary entries
+  """
+  entries: [Entry]
+}
+
+query GetVocabulary {
+  entries {
+    id
+    word
+  }
+}
+
 """
 Queries
 """
