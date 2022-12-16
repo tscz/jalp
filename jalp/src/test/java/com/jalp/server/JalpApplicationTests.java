@@ -22,7 +22,6 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.zalando.problem.violations.ConstraintViolationProblem;
 
 import com.github.tscz.spring.platform.jwt.JwtRequest;
 import com.github.tscz.spring.platform.jwt.JwtResponse;
@@ -81,7 +80,7 @@ public class JalpApplicationTests {
 		assertThat(response.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
 		assertThatJson(response.getBody())//
 				.isObject()//
-				.containsEntry("type", ConstraintViolationProblem.TYPE_VALUE)//
+				.containsEntry("type", "about:blank")//
 				.containsEntry("status", BigDecimal.valueOf(HttpStatus.BAD_REQUEST.value()))//
 				.containsEntry("title", "Constraint Violation");
 
