@@ -1,38 +1,30 @@
 {
   "name": "jalp",
   "version": "1.0.0",
-  "description": "Just Another Learning Platform (JALP)",
-  "engines": {
-    "node": "16.x"
-  },
+  "main": "index.js",
   "scripts": {
-    "ci:client": "cd ./client && npm ci ",
-    "ci:server": "cd ./server && npm ci ",
-    "ci": "npm run ci:server && npm run ci:client",
-    "build:client": "cd ./client && npm run build",
-    "build:server": "cd ./server && npm run build",
-    "build": "npm run ci && npm run build:server && npm run build:client",
-    "test:client": "cd ./client && npm run test",
-    "test:server": "cd ./server && npm run test",
-    "test": "npm run test:server && npm run test:client",
-    "lint:client": "cd ./client && npm run lint",
-    "lint:server": "cd ./server && npm run lint",
-    "lint": "npm run lint:server && npm run lint:client",
-    "codegen": "cd ./server && npm run codegen",
-    "deps:client": "cd ./client && npm run deps",
-    "deps:server": "cd ./server && npm run deps",
-    "deps": "npm run deps:server && npm run deps:client",
-    "start:client": "cd ./client && npm run start",
-    "start:server": "cd ./server && npm run start --"
+    "start": "npx ts-node src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tscz/jalp.git"
   },
+  "keywords": [],
   "author": "",
-  "license": "MIT",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/tscz/jalp/issues"
   },
-  "homepage": "https://github.com/tscz/jalp#readme"
+  "homepage": "https://github.com/tscz/jalp#readme",
+  "description": "",
+  "dependencies": {
+    "@slack/bolt": "^4.4.0",
+    "dotenv": "^16.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.24",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
 }
